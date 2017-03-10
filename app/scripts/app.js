@@ -13,11 +13,11 @@
             })
             .state('album', {
                 url: '/album',
-                templateURL: '/templates/album.html'
+                templateUrl: '/templates/album.html'
             })
             .state('collection', {
                 url: '/collection',
-                templaterURL: '/templates/collection.html'
+                templaterUrl: '/templates/collection.html'
             });
     }
     
