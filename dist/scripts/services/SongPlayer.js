@@ -43,6 +43,7 @@
         */
         var playSong = function(song) {
             currentBuzzObject.play();
+            currentBuzzObject.setVolume(SongPlayer.volume)
             song.playing = true;
         };
         /**
@@ -52,7 +53,7 @@
         */
         var stopSong = function(song) {
             currentBuzzObject.stop();
-            SongPlayer.currentSong.playing = null;;
+            SongPlayer.currentSong.playing = null;
         }
         /**
         * @function getSongIndex
@@ -73,6 +74,11 @@
         * @type {Number}
         */
         SongPlayer.currentTime = null;
+        /**
+        * @desc Current volume in app
+        * @type {Number}
+        */
+        SongPlayer.volume = 80;
         
         SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
@@ -131,6 +137,18 @@
         SongPlayer.setCurrentTime = function(time) {
             if (currentBuzzObject) {
                 currentBuzzObject.setTime(time);
+            }
+        };
+        
+        /**
+        * @method setVolume
+        * @desc Set volume of song currently playing
+        * @param {Number} volume
+        */
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+                SongPlayer.volume = volume
             }
         };
         
